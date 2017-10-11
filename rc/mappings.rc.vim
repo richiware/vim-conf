@@ -129,11 +129,6 @@ function! ToggleVariable(variable_name) abort
 endfunction  "}}}
 "}}}
 
-" s: Windows and buffers(High priority) "{{{
-" The prefix key.
-nnoremap <silent><expr> q winnr('$') != 1 ? ':<C-u>close<CR>' : ""
-"}}}
-
 " e: Change basic commands "{{{
 " The prefix key.
 nnoremap [Alt]   <Nop>
