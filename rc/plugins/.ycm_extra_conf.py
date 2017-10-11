@@ -3,27 +3,33 @@ import ycm_core
 import glob
 import subprocess
 
-toplevel = subprocess.check_output(['git', 'rev-parse', '--show-toplevel'])
+toplevel = None
+
+try:
+    toplevel = subprocess.check_output(['git', 'rev-parse', '--show-toplevel'])
+except:
+    pass
 
 flags = [
     '-x',
     'c++',
+    '--std=c++11',
     '-Wall',
     '-Wextra',
 ]
 
-if toplevel:
-    flags.append('-I' + toplevel.decode().rstrip() + '/include')
-
 max_time = 0
 selec_file = None
 
-for export_file in glob.glob(toplevel.decode().rstrip() + '/build/*/compile_commands.json'):
-    file_time = os.path.getmtime(export_file)
-    
-    if(file_time > max_time):
-        selec_file = export_file
-        max_time = file_time
+if toplevel:
+    flags.append('-I' + toplevel.decode().rstrip() + '/include')
+
+    for export_file in glob.glob(toplevel.decode().rstrip() + '/build/*/compile_commands.json'):
+        file_time = os.path.getmtime(export_file)
+
+        if(file_time > max_time):
+            selec_file = export_file
+            max_time = file_time
 
 if selec_file != None and os.path.exists(os.path.dirname(selec_file)):
     database = ycm_core.CompilationDatabase(os.path.dirname(selec_file))
