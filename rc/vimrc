@@ -54,7 +54,7 @@ filetype plugin indent on
 " CTags:
 "
 
-let g:ctags_command="ctags -R --c-kinds=+p --c++-kinds=+p --fields=+liaS --extra=+q --exclude=build ."
+let g:ctags_command="ctags -R --c-kinds=+p --c++-kinds=+p --fields=+liaS --extras=+q --exclude=build ."
 set tags+=/home/ricardo/workspace/desarrollo/utilidades/stl/stl_tags
 
 
