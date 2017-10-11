@@ -1,0 +1,204 @@
+# Fuzzy finder (Search files)
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+hook_add = '''
+  nnoremap <silent> <Leader>t
+        \ :<C-u>FZF<CR>
+'''
+
+[[plugins]]
+repo = 'Rykka/InstantRst'
+on_ft = 'rst'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_if = 1
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_if = 1
+on_source = 'unite.vim'
+
+[[plugins]]
+repo = 'Rykka/riv.vim'
+on_ft = 'rst'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomru.vim'
+hook_source = 'source ~/.vim/rc/plugins/unite.rc.vim'
+hook_add = '''
+  if has('nvim')
+    nnoremap <silent> <Leader>fu
+        \ :<C-u>Unite -auto-resize -start-insert -direction=botright buffer file_mru file_rec/neovim<CR>
+    nnoremap <silent> <Leader>ff
+        \ :<C-u>Unite -auto-resize -start-insert -direction=botright file_rec/neovim<CR>
+  else
+    nnoremap <silent> <Leader>fu
+        \ :<C-u>Unite -auto-resize -start-insert -direction=botright buffer file_mru file_rec/async<CR>
+    nnoremap <silent> <Leader>ff
+        \ :<C-u>Unite -auto-resize -start-insert -direction=botright file_rec/async<CR>
+  endif
+  nnoremap <silent> <Leader>fb
+        \ :<C-u>Unite -auto-resize -start-insert -direction=botright buffer<CR>
+  nnoremap <silent> <Leader>fm
+        \ :<C-u>Unite -auto-resize -start-insert -direction=botright file_mru<CR>
+  nnoremap <silent> <Leader>fo
+        \ :<C-u>Unite outline -no-start-insert -resume -direction=botright<CR>
+  nnoremap <silent> <Leader>fc
+        \ :<C-u>Unite change jump<CR>
+  nnoremap <silent> <Leader>fh
+        \ :<C-u>Unite -buffer-name=register
+        \ -default-action=append register history/yank<CR>
+  xnoremap <silent> <Leader>fh
+        \ d:<C-u>Unite -buffer-name=register
+        \ -default-action=append register history/yank<CR>
+
+  nnoremap <silent> <Leader>ft
+        \ :<C-u>Unite -auto-resize -select=`tabpagenr()-1` tab<CR>
+  nnoremap <silent> <Leader>fw
+        \ :<C-u>Unite -force-immediately window:all:no-current<CR>
+
+  nnoremap <silent> [Window]s
+        \ :<C-u>Unite -buffer-name=files -no-split -multi-line -unique -silent
+        \ jump_point file_point file_mru
+        \ `finddir('.git', ';') != '' ? 'file_rec/git' : ''`
+        \ buffer_tab:- file file/new<CR>
+
+  nnoremap <silent> [Window]<Space>
+        \ :<C-u>Unite -buffer-name=files -path=~/.vim/rc file_rec<CR>
+  nnoremap <silent> [Window]n
+        \ :<C-u>Unite -start-insert -default-action=lcd dein<CR>
+  nnoremap <silent> [Window]g
+        \ :<C-u>Unite -start-insert ghq<CR>
+
+  nnoremap <silent> [Space]ft
+        \ :<C-u>Unite -start-insert filetype filetype/new<CR>
+
+  " Tag jump.
+  nnoremap <silent><expr> tt  &filetype == 'help' ?  "g\<C-]>" :
+        \ ":\<C-u>UniteWithCursorWord -buffer-name=tag -immediately
+        \  tag tag/include\<CR>"
+  nnoremap <silent><expr> tp  &filetype == 'help' ?
+        \ ":\<C-u>pop\<CR>" : ":\<C-u>Unite jump\<CR>"
+
+  " Search.
+  nnoremap <silent> <Leader>f/
+        \ :<C-u>Unite -buffer-name=search%`bufnr('%')`
+        \ -start-insert line:forward:wrap<CR>
+  nnoremap <silent> <Leader>f*
+        \ :<C-u>UniteWithCursorWord -buffer-name=search%`bufnr('%')`
+        \ line:forward:wrap<CR>
+  nnoremap <silent> <Leader>fn
+        \ :<C-u>UniteResume search%`bufnr('%')`
+        \  -no-start-insert -force-redraw<CR>
+'''
+
+[[plugins]]
+repo = 'Shougo/unite-outline'
+on_source = 'unite.vim'
+
+[[plugins]]
+repo = 'tsukkee/unite-tag'
+on_source = 'unite.vim'
+
+# Teclas rápidas para utilizar vimgrep (ex: <Leader>vv)
+[[plugins]]
+repo = 'dkprice/vim-easygrep'
+on_map = {n = '<plug>'}
+hook_source = '''
+	let g:EasyGrepCommand = 1
+	set grepprg=ag\ --nogroup\ --nocolor\ --column
+'''
+hook_add = '''
+    map <silent> <Leader>vo <plug>EgMapGrepOptions
+    map <silent> <Leader>vv <plug>EgMapGrepCurrentWord_v
+    vmap <silent> <Leader>vv <plug>EgMapGrepSelection_v
+    map <silent> <Leader>vV <plug>EgMapGrepCurrentWord_V
+    vmap <silent> <Leader>vV <plug>EgMapGrepSelection_V
+    map <silent> <Leader>va <plug>EgMapGrepCurrentWord_a
+    vmap <silent> <Leader>va <plug>EgMapGrepSelection_a
+    map <silent> <Leader>vA <plug>EgMapGrepCurrentWord_A
+    map <silent> <Leader>vr <plug>EgMapReplaceCurrentWord_r
+    vmap <silent> <Leader>vr <plug>EgMapReplaceSelection_r
+    map <silent> <Leader>vR <plug>EgMapReplaceCurrentWord_R
+    vmap <silent> <Leader>vR <plug>EgMapReplaceSelection_R
+'''
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+on_map = {n = '<Plug>'}
+hook_add = '''
+    let g:EasyMotion_do_mapping = 0 
+    let g:EasyMotion_startofline = 0
+    let g:EasyMotion_show_prompt = 0
+    let g:EasyMotion_verbose = 0
+    let g:EasyMotion_smartcase = 1
+
+    nmap s <Plug>(easymotion-s2)
+    nmap S <Plug>(easymotion-t2)
+    map  <Leader>/ <Plug>(easymotion-sn)
+    omap <Leader>/ <Plug>(easymotion-tn)
+    map  <Leader>n <Plug>(easymotion-next)
+    map  <Leader>N <Plug>(easymotion-prev)
+    map <Leader>j <Plug>(easymotion-j)
+    map <Leader>k <Plug>(easymotion-k)
+    map <Leader>w <Plug>(easymotion-w)
+'''
+
+# Support for easytags
+# TODO Fix when LUA support is in neovim (hightlight can be don by other plugin that use LUA)
+[[plugins]]
+repo = 'xolox/vim-easytags'
+depends = 'vim-misc'
+on_ft = ['c', 'cpp', 'cxx', 'cc']
+hook_source = '''
+    let g:easytags_always_enabled = 0
+    let g:easytags_events = ['BufWritePost']
+    let g:easytags_file = 'tags'
+    if has('nvim')
+        let g:easytags_auto_highlight = 0
+    else
+        let g:easytags_auto_highlight = 0
+    endif
+    let g:easytags_updatetime_min = 5000
+    let g:easytags_async = 1
+    let g:easytags_opts = ['--c-kinds=+p', '--c++-kinds=+p', '--fields=+liaS', '--extra=+q', '--exclude=build']
+    let g:easytags_suppress_ctags_warning = 1
+'''
+
+# vim-latex-live-preview - Preview for latex files
+[[plugins]]
+repo = 'xuhdev/vim-latex-live-preview'
+on_ft = ['plaintex', 'tex']
+hook_source = '''
+    let g:livepreview_previewer = 'zathura'
+'''
+
+# Support for vim-misc. Necessary for easytags
+[[plugins]]
+repo = 'xolox/vim-misc'
+
+[[plugins]]
+repo = 'Valloric/YouCompleteMe'
+build = 'python3 install.py --clang-completer'
+on_ft = ['c', 'cpp', 'cxx', 'cc']
+timeout = '360'
+hook_source = '''
+    let g:ycm_dont_warn_on_startup = 0
+    let g:ycm_confirm_extra_conf = 0
+    let g:ycm_complete_in_comments = 1
+    let g:ycm_complete_in_strings = 1
+    let g:ycm_collect_identifiers_from_comments_and_strings = 1
+    let g:ycm_collect_identifiers_from_tags_files = 1
+    let g:ycm_always_populate_location_list = 1
+    let g:ycm_global_ycm_extra_conf = '~/.vim/rc/plugins/.ycm_extra_conf.py'
+    let g:ycm_filetype_blacklist = {}
+    let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+    let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+    nnoremap <leader>yd :YcmCompleter GoTo<CR>
+    set completeopt-=preview
+    set completeopt+=menuone
+    set completeopt+=longest
+'''

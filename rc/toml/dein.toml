@@ -1,0 +1,126 @@
+[[plugins]]
+repo = 'vim-scripts/AnsiEsc.vim'
+
+# BufExplorer
+[[plugins]]
+repo = 'jlanzarotta/bufexplorer'
+# Open BufferExplorer
+hook_add = 'nmap <F9> :<C-u>ToggleBufExplorer<CR>'
+
+[[plugins]]
+repo = 'mbbill/code_complete'
+
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# TODO(Ricardo)
+[[plugins]]
+repo = 'vim-scripts/DirDiff.vim'
+hook_source = '''
+    let g:DirDiffTextFiles = "Los ficheros "
+    let g:DirDiffTextAnd = " y "
+    let g:DirDiffTextDiffer = " son distintos"
+    let g:DirDiffTextOnlyIn = "Sólo en"
+'''
+
+# Plugin que añade autocompletado para Java.
+# TODO(Ricardo)
+[[plugins]]
+repo = 'ervandew/eclim'
+# Coexistencia entre YouCompleteMe y Eclim
+hook_source = "let g:EclimCompletionMethod = 'omnifunc'"
+
+# Support for Evernote
+# TODO(Ricardo)
+[[plugins]]
+repo = 'kakkyz81/evervim'
+# Evernote developer key
+hook_source = "let g:evervim_devtoken='S=s44:U=495a1f:E=16050da403b:C=158f9291140:P=1cd:A=en-devtoken:V=2:H=13e0fa2775b4a545051d81d06ed9c3ed'"
+
+# Supertab - enhanced tab behavior based on context
+[[plugins]]
+repo = 'ervandew/supertab'
+hook_source = '''
+    let g:SuperTabDefaultCompletionType    = '<C-n>'
+    let g:SuperTabCrMapping                = 0
+'''
+
+[[plugins]]
+repo = 'vim-scripts/taglist.vim'
+hook_add = '''
+    let g:Tlist_Display_Prototype = 0
+    let g:Tlist_Display_Tag_Scope = 1
+    let g:Tlist_Exit_OnlyWindow = 1
+    let g:Tlist_Enable_Fold_Column = 0
+    let g:Tlist_Sort_Type = "order"
+    let g:Tlist_Compact_Format = 1
+    let g:Tlist_File_Fold_Auto_Close = 0
+    let g:Tlist_WinWidth = 35
+    let g:Tlist_GainFocus_On_ToggleOpen = 1
+    let g:Tlist_Close_On_Select = 1
+    let g:Tlist_Show_One_File = 1
+    nmap <F10> :Tlist<CR>
+'''
+
+
+# UltiSnips - Fancy snippet functionality
+[[plugins]]
+repo = 'SirVer/ultisnips'
+hook_source = '''
+    let g:UltiSnipsSnippetsDir='~/.vim/snippets'
+    let g:UltiSnipsEditSplit='vertical'
+    let g:UltiSnipsExpandTrigger           = '<tab>'
+    let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+    let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+    nnoremap <leader>ue :UltiSnipsEdit<cr>
+'''
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+hook_post_source = '''
+    if has('gui_running')
+        set background=light
+    else
+        set background=dark
+    endif
+    colorscheme solarized
+'''
+
+# Instala una barra inferior con más información (ex: información git)
+[[plugins]]
+repo = 'bling/vim-airline'
+depends = 'vim-obsession'
+hook_source = '''
+    let g:airline#extensions#branch#enabled = 1
+    let g:airline#extensions#eclim#enabled = 1
+    let g:airline#extensions#tabline#enabled = 1
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
+    let g:airline_powerline_fonts = 1
+'''
+
+# Plugin para gestionar repositorio Git.
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'suan/vim-instant-markdown'
+hook_source = 'let g:instant_markdown_autostart = 0'
+
+# Automatic save of sessions.
+[[plugins]]
+repo = 'tpope/vim-obsession'
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+
+# Support for vim-tmux-navigator
+[[plugins]]
+repo = 'christoomey/vim-tmux-navigator'
+
+# Plugin para generar ficheros YouCompleteMe o Color_Coded.
+[[plugins]]
+repo = 'rdnetto/YCM-Generator'

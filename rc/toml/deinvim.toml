@@ -1,0 +1,5 @@
+[[plugins]]
+repo = 'critiqjo/lldb.nvim'
+hook_add = '''
+    let g:lldb_map_Lrun = '<leader>lr'
+'''

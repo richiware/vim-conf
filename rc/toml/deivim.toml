@@ -1,0 +1,11 @@
+[[plugins]]
+repo = 'jeaye/color_coded'
+build = 'cmake -DDOWNLOAD_CLANG=FALSE . && make && make install'
+on_ft = ['c', 'cpp', 'objc', 'objcpp']
+
+# Plugin para expandir % a HTML, LaTex, ...
+[[plugins]]
+repo = 'vim-scripts/matchit.zip'
+
+[[plugins]]
+repo = 'dnguyen85/vim-pyclewn'
