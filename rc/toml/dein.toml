@@ -117,6 +117,10 @@ repo = 'tpope/vim-obsession'
 [[plugins]]
 repo = 'honza/vim-snippets'
 
+# Tmux syntax
+[[plugins]]
+repo = 'tmux-plugins/vim-tmux'
+
 # Support for vim-tmux-navigator
 [[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
