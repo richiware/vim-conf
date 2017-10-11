@@ -259,3 +259,7 @@ function! s:add_numbers(num) abort
 endfunction
 
 nnoremap <silent> #    <C-^>
+
+" vv to generate new vertical split
+nnoremap <silent> vv <C-w>v
+nnoremap <silent> vo <C-w>s
