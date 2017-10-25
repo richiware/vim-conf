@@ -1,4 +1,7 @@
 [[plugins]]
+repo = 'vim-scripts/AnsiEsc.vim'
+
+[[plugins]]
 repo = 'rbgrouleff/bclose.vim'
 
 # Fuzzy finder (Search files)
