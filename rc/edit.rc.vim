@@ -137,3 +137,6 @@ if has('cryptv')
   " It seems 15ms overhead.
   "  set cryptmethod=blowfish2
 endif
+
+" Change default makeprg
+set makeprg=make\ -C\ build/Debug\ GCC_COLORS=
