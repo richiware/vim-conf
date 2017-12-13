@@ -147,6 +147,21 @@ repo = 'christoomey/vim-tmux-navigator'
 # Better support for latex
 [[plugins]]
 repo = 'lervag/vimtex'
+hook_source = '''
+    let g:vimtex_view_method = 'zathura'
+    let g:vimtex_tex_program = 'xelatex'
+    let g:vimtex_compiler_latexmk = {
+        \ 'build_dir' : getcwd().'/build/pdf',
+        \ 'options' : [
+        \   '-pdf',
+        \   "-e '$pdflatex=q/xelatex %O %S/'",
+        \   '-verbose',
+        \   '-file-line-error',
+        \   '-synctex=1',
+        \   '-interaction=nonstopmode',
+        \ ],
+        \}
+'''
 
 # Plugin para generar ficheros YouCompleteMe o Color_Coded.
 [[plugins]]
