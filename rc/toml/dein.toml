@@ -144,6 +144,10 @@ repo = 'tmux-plugins/vim-tmux'
 [[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
 
+# Better support for latex
+[[plugins]]
+repo = 'lervag/vimtex'
+
 # Plugin para generar ficheros YouCompleteMe o Color_Coded.
 [[plugins]]
 repo = 'rdnetto/YCM-Generator'
