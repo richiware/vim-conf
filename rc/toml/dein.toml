@@ -128,6 +128,14 @@ repo = 'tpope/vim-obsession'
 [[plugins]]
 repo = 'honza/vim-snippets'
 
+# Support for taskwarrior
+[[plugins]]
+repo = 'blindFS/vim-taskwarrior'
+hook_add = '''
+    nnoremap <silent> <Leader>T
+        \ <Plug>(taskwarrior_quickref)
+'''
+
 # Tmux syntax
 [[plugins]]
 repo = 'tmux-plugins/vim-tmux'
