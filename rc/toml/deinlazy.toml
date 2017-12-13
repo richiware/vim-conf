@@ -182,14 +182,6 @@ hook_source = '''
     let g:easytags_suppress_ctags_warning = 1
 '''
 
-# vim-latex-live-preview - Preview for latex files
-[[plugins]]
-repo = 'xuhdev/vim-latex-live-preview'
-on_ft = ['plaintex', 'tex']
-hook_source = '''
-    let g:livepreview_previewer = 'zathura'
-'''
-
 # Support for vim-misc. Necessary for easytags
 [[plugins]]
 repo = 'xolox/vim-misc'
