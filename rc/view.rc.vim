@@ -52,7 +52,7 @@ let &g:statusline="%{winnr('$')>1?'['.winnr().'/'.winnr('$')"
 " Turn down a long line appointed in 'breakat'
 set linebreak
 set showbreak=\
-set textwidth=100
+set textwidth=120
 set breakat=\ \	;:,!?
 " Wrap conditions.
 set whichwrap+=h,l,<,>,[,],b,s,~
@@ -166,7 +166,7 @@ if v:version >= 703
   " For conceal.
    set conceallevel=2 concealcursor=niv
 
-   set colorcolumn=101
+   set colorcolumn=121
 
   " Use builtin function.
   function! s:wcswidth(str) abort
