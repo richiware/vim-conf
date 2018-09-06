@@ -4,6 +4,13 @@ repo = 'vim-scripts/AnsiEsc.vim'
 [[plugins]]
 repo = 'rbgrouleff/bclose.vim'
 
+[[plugins]]
+repo = 'chrisbra/CheckAttach'
+on_ft = ['mail']
+hook_source = '''
+    let g:checkattach_filebrowser = 'ranger'
+'''
+
 # Fuzzy finder (Search files)
 [[plugins]]
 repo = 'junegunn/fzf'
@@ -188,7 +195,7 @@ repo = 'dbeniamine/vim-mail'
 on_ft = ['mail']
 hook_source = '''
     let g:VimMailStartFlags = 'SAi'
-    let g:VimMailContactQueryCmd="khard email --search-in-source-files --parsable "
+    let g:VimMailContactsProvider = "khard"
     let g:VimMailSpellLangs=['es','en']
     let g:VimMailClient="gnome-terminal -- neomutt -R"
     let g:VimMailSendCmd=":! neomutt -a %"
