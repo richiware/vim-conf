@@ -113,9 +113,18 @@ hook_source = '''
     let g:airline_powerline_fonts = 1
 '''
 
+# Plugin to review PR in Github.
+[[plugins]]
+repo = 'junkblocker/patchreview-vim'
+[[plugins]]
+repo = 'codegram/vim-codereview'
+
 # Plugin para gestionar repositorio Git.
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+# Extension of fugitive
+[[plugins]]
+repo = 'idanarye/vim-merginal'
 
 [[plugins]]
 repo = 'suan/vim-instant-markdown'
