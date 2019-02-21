@@ -178,6 +178,9 @@ else
   endfunction
 endif
 
+" Always show sing column
+set signcolumn=yes
+
 " Facil splitting
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>

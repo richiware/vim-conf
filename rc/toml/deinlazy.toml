@@ -201,30 +201,57 @@ hook_source = '''
     let g:VimMailSendCmd=":! neomutt -a %"
 '''
 
+# Generate automatically markdown toc.
+[[plugins]]
+repo = 'mzlogin/vim-markdown-toc'
+on_ft = ['markdown']
+hook_source = '''
+    let g:vmt_fence_hidden_markdown_style = 'GitLab'
+    let g:vmt_fence_text = 'TOC'
+    let g:vmt_fence_closing_text = '/TOC'
+    let g:vmt_list_item_char = '-'
+'''
+
 # Support for vim-misc. Necessary for easytags
 [[plugins]]
 repo = 'xolox/vim-misc'
 
+# Plugin for autocomplete
 [[plugins]]
-repo = 'Valloric/YouCompleteMe'
-build = 'python3 install.py --clang-completer --tern-completer'
-on_ft = ['c', 'cpp', 'cxx', 'cc', 'javascript']
-timeout = '360'
+repo = 'Shougo/context_filetype.vim'
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+on_event = 'InsertEnter'
 hook_source = '''
-    let g:ycm_dont_warn_on_startup = 0
-    let g:ycm_confirm_extra_conf = 0
-    let g:ycm_complete_in_comments = 1
-    let g:ycm_complete_in_strings = 1
-    let g:ycm_collect_identifiers_from_comments_and_strings = 1
-    let g:ycm_collect_identifiers_from_tags_files = 1
-    let g:ycm_always_populate_location_list = 1
-    let g:ycm_global_ycm_extra_conf = '~/.vim/rc/plugins/.ycm_extra_conf.py'
-    let g:ycm_filetype_blacklist = {}
-    let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
-    let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
-    nnoremap <leader>yd :YcmCompleter GoTo<CR>
-    inoremap <expr> <Enter> pumvisible() ? "\<C-Y><Enter>" : "<Enter>"
-    set completeopt-=preview
-    set completeopt+=menuone
-    set completeopt+=longest
+    source ~/.vim/rc/plugins/deoplete.rc.vim
+    call deoplete#enable()
 '''
+
+# Complete/Identify unicode characteres.
+[[plugins]]
+repo = 'chrisbra/unicode.vim'
+
+#[[plugins]]
+#repo = 'Valloric/YouCompleteMe'
+#build = 'python3 install.py --clang-completer --tern-completer'
+#on_ft = ['c', 'cpp', 'cxx', 'cc', 'javascript']
+#timeout = '360'
+#hook_source = '''
+#    let g:ycm_dont_warn_on_startup = 0
+#    let g:ycm_confirm_extra_conf = 0
+#    let g:ycm_complete_in_comments = 1
+#    let g:ycm_complete_in_strings = 1
+#    let g:ycm_collect_identifiers_from_comments_and_strings = 1
+#    let g:ycm_collect_identifiers_from_tags_files = 1
+#    let g:ycm_always_populate_location_list = 1
+#    let g:ycm_global_ycm_extra_conf = '~/.vim/rc/plugins/.ycm_extra_conf.py'
+#    let g:ycm_filetype_blacklist = {}
+#    let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+#    let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+#    nnoremap <leader>yd :YcmCompleter GoTo<CR>
+#    inoremap <expr> <Enter> pumvisible() ? "\<C-Y><Enter>" : "<Enter>"
+#    set completeopt-=preview
+#    set completeopt+=menuone
+#    set completeopt+=longest
+#'''

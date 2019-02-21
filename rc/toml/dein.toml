@@ -8,15 +8,12 @@ repo = 'jlanzarotta/bufexplorer'
 hook_add = 'nmap <F9> :<C-u>ToggleBufExplorer<CR>'
 
 [[plugins]]
-repo = 'mbbill/code_complete'
-
-[[plugins]]
 repo = 'arakashic/chromatica.nvim'
 on_ft = ['c', 'cpp', 'objc', 'objcpp']
 hook_source = '''
-    let g:chromatica#libclang_path = '/usr/lib/llvm/4/lib64/libclang.so'
+    let g:chromatica#libclang_path = '/usr/lib/llvm/7/lib64/libclang.so'
+    let g:chromatica#global_args = ['-isystem/usr/lib/clang/7.0.1/include']
     let g:chromatica#enable_at_startup = 1
-    let g:chromatica#dotclangfile_search_path = 'build/Debug'
     let g:chromatica#highlight_feature_level = 1
     let g:chromatica#responsive_mode = 1
 '''
@@ -48,12 +45,14 @@ repo = 'kakkyz81/evervim'
 # Evernote developer key
 hook_source = "let g:evervim_devtoken='S=s44:U=495a1f:E=16050da403b:C=158f9291140:P=1cd:A=en-devtoken:V=2:H=13e0fa2775b4a545051d81d06ed9c3ed'"
 
+[[plugins]]
+repo = 'cpiger/NeoDebug'
+
 # Supertab - enhanced tab behavior based on context
 [[plugins]]
 repo = 'ervandew/supertab'
 hook_source = '''
     let g:SuperTabDefaultCompletionType    = '<C-n>'
-    let g:SuperTabCrMapping                = 0
 '''
 
 [[plugins]]
@@ -80,9 +79,13 @@ repo = 'SirVer/ultisnips'
 hook_source = '''
     let g:UltiSnipsSnippetsDir='~/.vim/snippets'
     let g:UltiSnipsEditSplit='vertical'
-    let g:UltiSnipsExpandTrigger           = '<tab>'
-    let g:UltiSnipsJumpForwardTrigger      = '<tab>'
-    let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+
+    " Don't map tabs because used by deoplete.
+    let g:UltiSnipsExpandTrigger="<NUL>"
+    let g:UltiSnipsListSnippets="<NUL>"
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
+    let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
     nnoremap <leader>ue :UltiSnipsEdit<cr>
 '''
 
@@ -126,9 +129,36 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'idanarye/vim-merginal'
 
+# Grammatically correction
+[[plugins]]
+repo = 'rhysd/vim-grammarous'
+hook_source = '''
+    nmap <Leader>G <Plug>(grammarous-open-info-window)
+'''
+
 [[plugins]]
 repo = 'suan/vim-instant-markdown'
 hook_source = 'let g:instant_markdown_autostart = 0'
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+[[plugins]]
+repo = 'kana/vim-metarw'
+depends = 'webapi-vim'
+
+[[plugins]]
+repo = 'kana/vim-metarw-git'
+depends = 'vim-metarw'
+
+[[plugins]]
+repo = 'zebult/vim-metarw-redmine'
+depends = 'vim-metarw'
+hook_source = '''
+    let g:metarw_redmine_server = 'http://eprosima.easyredmine.com'
+    let g:metarw_redmine_apikey = '54c4752502ac196192a1ea76382e178c9b2c7c17'
+    let g:metarw_redmine_projectkey = '3'
+    let g:metarw_redmine_queryid = '5'
+'''
 
 # Automatic save of sessions.
 [[plugins]]
@@ -186,3 +216,33 @@ hook_source = '''
 # Plugin para generar ficheros YouCompleteMe o Color_Coded.
 [[plugins]]
 repo = 'rdnetto/YCM-Generator'
+
+# Add support for autocomplete servers
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+build =  'bash install.sh'
+hook_source = '''
+    let g:LanguageClient_serverCommands = {
+    \ 'c'   : ['clangd', '-yaml-symbol-file=index.yaml'],
+    \ 'cpp'   : ['clangd', '-yaml-symbol-file=index.yaml'],
+    \ }
+
+    function! SetLSPShortcuts()
+      nnoremap <leader>gd :call LanguageClient#textDocument_definition()<CR>
+      nnoremap <leader>gr :call LanguageClient#textDocument_rename()<CR>
+      nnoremap <leader>gf :call LanguageClient#textDocument_formatting()<CR>
+      nnoremap <leader>gt :call LanguageClient#textDocument_typeDefinition()<CR>
+      nnoremap <leader>gx :call LanguageClient#textDocument_references()<CR>
+      nnoremap <leader>ga :call LanguageClient_workspace_applyEdit()<CR>
+      nnoremap <leader>gc :call LanguageClient#textDocument_completion()<CR>
+      nnoremap <leader>gh :call LanguageClient#textDocument_hover()<CR>
+      nnoremap <leader>gs :call LanguageClient_textDocument_documentSymbol()<CR>
+      nnoremap <leader>gm :call LanguageClient_contextMenu()<CR>
+    endfunction()
+
+    augroup LSP
+      autocmd!
+      autocmd FileType cpp,c call SetLSPShortcuts()
+    augroup END
+'''

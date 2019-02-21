@@ -9,3 +9,9 @@ repo = 'vim-scripts/matchit.zip'
 
 [[plugins]]
 repo = 'dnguyen85/vim-pyclewn'
+
+# Plugins necessary for deocomplete.vim
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
