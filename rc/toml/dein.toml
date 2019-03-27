@@ -11,8 +11,8 @@ hook_add = 'nmap <F9> :<C-u>ToggleBufExplorer<CR>'
 repo = 'arakashic/chromatica.nvim'
 on_ft = ['c', 'cpp', 'objc', 'objcpp']
 hook_source = '''
-    let g:chromatica#libclang_path = '/usr/lib/llvm/7/lib64/libclang.so'
-    let g:chromatica#global_args = ['-isystem/usr/lib/clang/7.0.1/include']
+    let g:chromatica#libclang_path = '/usr/lib/llvm/8/lib64/libclang.so'
+    let g:chromatica#global_args = ['-isystem/usr/lib/clang/8.0.0/include']
     let g:chromatica#enable_at_startup = 1
     let g:chromatica#highlight_feature_level = 1
     let g:chromatica#responsive_mode = 1
@@ -224,8 +224,8 @@ rev = 'next'
 build =  'bash install.sh'
 hook_source = '''
     let g:LanguageClient_serverCommands = {
-    \ 'c'   : ['clangd', '-yaml-symbol-file=index.yaml'],
-    \ 'cpp'   : ['clangd', '-yaml-symbol-file=index.yaml'],
+    \ 'c'   : ['clangd'],
+    \ 'cpp'   : ['clangd'],
     \ }
 
     function! SetLSPShortcuts()
@@ -246,3 +246,8 @@ hook_source = '''
       autocmd FileType cpp,c call SetLSPShortcuts()
     augroup END
 '''
+
+# Add support for debugging on GDB
+[[plugins]]
+repo = 'sakhnik/nvim-gdb'
+build = 'bash install.sh'
