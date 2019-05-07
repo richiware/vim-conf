@@ -21,6 +21,8 @@ else
   call dein#load_toml('~/.vim/rc/toml/deivim.toml', {})
 endif
 
+call dein#add('altercation/vim-colors-solarized')
+
 call dein#end()
 call dein#save_state()
 
