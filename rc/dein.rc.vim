@@ -1,27 +1,32 @@
 " dein configurations.
 
+let g:dein#auto_recache = 1
 let g:dein#install_progress_type = 'title'
-let g:dein#install_message_type = 'none'
 let g:dein#enable_notification = 1
 let g:dein#notification_icon = '~/.vim/signs/warn.png'
+let g:dein#install_log_filename = '~/tmp/dein.log'
 
 let s:path = expand('$CACHE/dein')
 if !dein#load_state(s:path)
   finish
 endif
 
-call dein#begin(s:path, [expand('<sfile>')]
-      \ + split(glob('~/.vim/rc/toml/*.toml'), '\n'))
+let s:dein_toml = '~/.vim/rc/toml/dein.toml'
+let s:dein_lazy_toml = '~/.vim/rc/toml/deinlazy.toml'
+let s:dein_nvim_toml = '~/.vim/rc/toml/deinvim.toml'
+let s:dein_vim_toml = '~/.vim/rc/toml/deivim.toml'
 
-call dein#load_toml('~/.vim/rc/toml/dein.toml', {'lazy': 0})
-call dein#load_toml('~/.vim/rc/toml/deinlazy.toml', {'lazy' : 1})
+call dein#begin(s:path, [
+      \ expand('<sfile>'), s:dein_toml, s:dein_lazy_toml, s:dein_nvim_toml, s:dein_vim_toml
+      \ ])
+
+call dein#load_toml(s:dein_toml, {'lazy': 0})
+call dein#load_toml(s:dein_lazy_toml, {'lazy' : 1})
 if has('nvim')
-  call dein#load_toml('~/.vim/rc/toml/deinvim.toml', {})
+  call dein#load_toml(s:dein_nvim_toml)
 else
-  call dein#load_toml('~/.vim/rc/toml/deivim.toml', {})
+  call dein#load_toml(s:dein_vim_toml)
 endif
-
-call dein#add('altercation/vim-colors-solarized')
 
 call dein#end()
 call dein#save_state()
