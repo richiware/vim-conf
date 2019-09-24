@@ -3,3 +3,24 @@ repo = 'dbgx/lldb.nvim'
 hook_add = '''
     let g:lldb_map_Lrun = '<leader>lr'
 '''
+
+[[plugins]]
+repo = 'sbdchd/neoformat'
+hook_source = '''
+    " Enabling formatters
+    "let g:neoformat_enabled_cpp = ['clangformat']
+    let g:neoformat_enabled_cpp = ['uncrustify']
+    " Use &formatprg as a formatter
+    let g:neoformat_try_formatprg = 1
+    " Enable alignment
+    let g:neoformat_basic_format_align = 0
+    " Enable tab to spaces conversion
+    let g:neoformat_basic_format_retab = 1
+    " Enable trimmming of trailing whitespace
+    let g:neoformat_basic_format_trim = 1
+
+    augroup fmt
+        autocmd!
+        autocmd BufWritePre * undojoin | Neoformat
+    augroup END
+'''
