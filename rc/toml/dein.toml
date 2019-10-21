@@ -7,16 +7,18 @@ repo = 'jlanzarotta/bufexplorer'
 # Open BufferExplorer
 hook_add = 'nmap <F9> :<C-u>ToggleBufExplorer<CR>'
 
+# Plugin for autocomplete
 [[plugins]]
-repo = 'arakashic/chromatica.nvim'
-on_ft = ['c', 'cpp', 'objc', 'objcpp']
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+merge = '0'
 hook_source = '''
-    let g:chromatica#libclang_path = '/usr/lib/llvm/8/lib64/libclang.so'
-    let g:chromatica#global_args = ['-isystem/usr/lib/clang/8.0.0/include']
-    let g:chromatica#enable_at_startup = 1
-    let g:chromatica#highlight_feature_level = 1
-    let g:chromatica#responsive_mode = 1
+    autocmd CursorHold * silent call CocActionAsync('highlight') " Highlight current word on cursor.
 '''
+
+# Plugin for highligh using a LanguageServer (CoC)
+[[plugins]]
+repo = 'jackguo380/vim-lsp-cxx-highlight'
 
 [[plugins]]
 repo = 'Shougo/dein.vim'
@@ -48,7 +50,7 @@ hook_source = "let g:evervim_devtoken='S=s44:U=495a1f:E=16050da403b:C=158f929114
 [[plugins]]
 repo = 'cpiger/NeoDebug'
 
-# Supertab - enhanced tab behavior based on context
+# Supertab - Activar autocompletado cuando das a TAB, en vez de tener que dar a Ctrl-X + Ctrl-O
 [[plugins]]
 repo = 'ervandew/supertab'
 hook_source = '''
@@ -114,6 +116,7 @@ hook_source = '''
     let g:airline#extensions#branch#enabled = 1
     let g:airline#extensions#eclim#enabled = 1
     let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#coc#enabled = 1 " Integration with CoC
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
     let g:airline_powerline_fonts = 1
 '''
@@ -220,34 +223,34 @@ hook_source = '''
 repo = 'rdnetto/YCM-Generator'
 
 # Add support for autocomplete servers
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-build =  'bash install.sh'
-hook_source = '''
-    let g:LanguageClient_serverCommands = {
-    \ 'c'   : ['clangd'],
-    \ 'cpp'   : ['clangd'],
-    \ }
-
-    function! SetLSPShortcuts()
-      nnoremap <leader>gd :call LanguageClient#textDocument_definition()<CR>
-      nnoremap <leader>gr :call LanguageClient#textDocument_rename()<CR>
-      nnoremap <leader>gf :call LanguageClient#textDocument_formatting()<CR>
-      nnoremap <leader>gt :call LanguageClient#textDocument_typeDefinition()<CR>
-      nnoremap <leader>gx :call LanguageClient#textDocument_references()<CR>
-      nnoremap <leader>ga :call LanguageClient_workspace_applyEdit()<CR>
-      nnoremap <leader>gc :call LanguageClient#textDocument_completion()<CR>
-      nnoremap <leader>gh :call LanguageClient#textDocument_hover()<CR>
-      nnoremap <leader>gs :call LanguageClient_textDocument_documentSymbol()<CR>
-      nnoremap <leader>gm :call LanguageClient_contextMenu()<CR>
-    endfunction()
-
-    augroup LSP
-      autocmd!
-      autocmd FileType cpp,c call SetLSPShortcuts()
-    augroup END
-'''
+#[[plugins]]
+#repo = 'autozimu/LanguageClient-neovim'
+#rev = 'next'
+#build =  'bash install.sh'
+#hook_source = '''
+#    let g:LanguageClient_serverCommands = {
+#    \ 'c'   : ['clangd'],
+#    \ 'cpp'   : ['clangd'],
+#    \ }
+#
+#    function! SetLSPShortcuts()
+#      nnoremap <leader>gd :call LanguageClient#textDocument_definition()<CR>
+#      nnoremap <leader>gr :call LanguageClient#textDocument_rename()<CR>
+#      nnoremap <leader>gf :call LanguageClient#textDocument_formatting()<CR>
+#      nnoremap <leader>gt :call LanguageClient#textDocument_typeDefinition()<CR>
+#      nnoremap <leader>gx :call LanguageClient#textDocument_references()<CR>
+#      nnoremap <leader>ga :call LanguageClient_workspace_applyEdit()<CR>
+#      nnoremap <leader>gc :call LanguageClient#textDocument_completion()<CR>
+#      nnoremap <leader>gh :call LanguageClient#textDocument_hover()<CR>
+#      nnoremap <leader>gs :call LanguageClient_textDocument_documentSymbol()<CR>
+#      nnoremap <leader>gm :call LanguageClient_contextMenu()<CR>
+#    endfunction()
+#
+#    augroup LSP
+#      autocmd!
+#      autocmd FileType cpp,c call SetLSPShortcuts()
+#    augroup END
+#'''
 
 # Add support for debugging on GDB
 [[plugins]]

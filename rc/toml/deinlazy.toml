@@ -129,8 +129,8 @@ on_source = 'unite.vim'
 repo = 'dkprice/vim-easygrep'
 on_map = {n = '<plug>'}
 hook_source = '''
-	let g:EasyGrepCommand = 1
-	set grepprg=ag\ --nogroup\ --nocolor\ --column
+    let g:EasyGrepCommand = 1
+    set grepprg=ag\ --nogroup\ --nocolor\ --column
 '''
 hook_add = '''
     map <silent> <Leader>vo <plug>EgMapGrepOptions
@@ -151,7 +151,7 @@ hook_add = '''
 repo = 'easymotion/vim-easymotion'
 on_map = {n = '<Plug>'}
 hook_add = '''
-    let g:EasyMotion_do_mapping = 0 
+    let g:EasyMotion_do_mapping = 0
     let g:EasyMotion_startofline = 0
     let g:EasyMotion_show_prompt = 0
     let g:EasyMotion_verbose = 0
@@ -215,18 +215,6 @@ hook_source = '''
 # Support for vim-misc. Necessary for easytags
 [[plugins]]
 repo = 'xolox/vim-misc'
-
-# Plugin for autocomplete
-[[plugins]]
-repo = 'Shougo/context_filetype.vim'
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-on_event = 'InsertEnter'
-hook_source = '''
-    source ~/.vim/rc/plugins/deoplete.rc.vim
-    call deoplete#enable()
-'''
 
 # Complete/Identify unicode characteres.
 [[plugins]]

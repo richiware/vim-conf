@@ -53,7 +53,7 @@ let &g:statusline="%{winnr('$')>1?'['.winnr().'/'.winnr('$')"
 set linebreak
 set showbreak=\
 set textwidth=120
-set breakat=\ \	;:,!?
+set breakat=\ \ ;:,!?
 " Wrap conditions.
 set whichwrap+=h,l,<,>,[,],b,s,~
 if exists('+breakindent')
@@ -186,3 +186,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Coc highlight. Highlight current word under cursor.
+highlight CocHighlightText cterm=underline,bold
