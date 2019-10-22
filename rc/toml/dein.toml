@@ -14,6 +14,7 @@ rev = 'release'
 merge = '0'
 hook_source = '''
     autocmd CursorHold * silent call CocActionAsync('highlight') " Highlight current word on cursor.
+    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 '''
 
 # Plugin for highligh using a LanguageServer (CoC)
