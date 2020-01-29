@@ -143,8 +143,13 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'suan/vim-instant-markdown'
-hook_source = 'let g:instant_markdown_autostart = 1'
+repo = 'iamcco/markdown-preview.nvim'
+build = 'cd app & yarn install'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+hook_source = '''
+    let g:mkdp_auto_start = 1
+    let g:mkdp_port = '8090'
+'''
 
 [[plugins]]
 repo = 'mattn/webapi-vim'
