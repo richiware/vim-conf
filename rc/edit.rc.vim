@@ -18,6 +18,8 @@ set shiftwidth=4
 set cindent shiftwidth=4
 " Round indent by shiftwidth.
 set shiftround
+" C/C++ indent options.
+set cino=g0
 
 " Enable smart indent.
 set autoindent smartindent
