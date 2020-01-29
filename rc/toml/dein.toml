@@ -144,7 +144,7 @@ hook_source = '''
 
 [[plugins]]
 repo = 'suan/vim-instant-markdown'
-hook_source = 'let g:instant_markdown_autostart = 0'
+hook_source = 'let g:instant_markdown_autostart = 1'
 
 [[plugins]]
 repo = 'mattn/webapi-vim'
@@ -257,3 +257,7 @@ repo = 'rdnetto/YCM-Generator'
 [[plugins]]
 repo = 'sakhnik/nvim-gdb'
 build = 'bash install.sh'
+
+# Check your grammar
+[[plugins]]
+repo = 'reedes/vim-wordy'

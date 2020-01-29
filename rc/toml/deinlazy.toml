@@ -200,13 +200,13 @@ hook_source = '''
     let g:vmt_list_item_char = '-'
 '''
 
-# Support for vim-misc. Necessary for easytags
-[[plugins]]
-repo = 'xolox/vim-misc'
-
 # Complete/Identify unicode characteres.
 [[plugins]]
 repo = 'chrisbra/unicode.vim'
+
+# Support for vim-misc. Necessary for easytags
+[[plugins]]
+repo = 'xolox/vim-misc'
 
 #[[plugins]]
 #repo = 'Valloric/YouCompleteMe'
