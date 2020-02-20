@@ -32,6 +32,10 @@ endif
 
 let $CACHE = expand($XDG_CACHE_HOME)
 
+if strlen($CACHE) == 0
+    let $CACHE = expand('~/.cache')
+endif
+
 if !isdirectory(expand($CACHE))
   call mkdir(expand($CACHE), 'p')
 endif
