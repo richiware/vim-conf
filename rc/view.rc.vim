@@ -189,3 +189,5 @@ nnoremap <C-H> <C-W><C-H>
 
 " Coc highlight. Highlight current word under cursor.
 highlight CocHighlightText cterm=underline,bold
+" Background transparent in terminal
+highlight Normal ctermbg=NONE
