@@ -15,6 +15,7 @@ let s:dein_toml = '~/.vim/rc/toml/dein.toml'
 let s:dein_lazy_toml = '~/.vim/rc/toml/deinlazy.toml'
 let s:dein_nvim_toml = '~/.vim/rc/toml/deinvim.toml'
 let s:dein_vim_toml = '~/.vim/rc/toml/deivim.toml'
+let s:notes_toml = '~/.vim/rc/toml/notes.toml'
 
 call dein#begin(s:path, [
       \ expand('<sfile>'), s:dein_toml, s:dein_lazy_toml, s:dein_nvim_toml, s:dein_vim_toml
@@ -27,6 +28,7 @@ if has('nvim')
 else
   call dein#load_toml(s:dein_vim_toml)
 endif
+call dein#load_toml(s:notes_toml)
 
 call dein#end()
 call dein#save_state()

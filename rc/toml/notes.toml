@@ -1,0 +1,10 @@
+########################################################################################################################
+# Plugins used to edit my notes.                                                                                       #
+########################################################################################################################
+
+[[plugins]]
+# VimWiki is a personal wiki for Vim. I use it for taking my notes.
+repo = 'vimwiki/vimwiki'
+hook_source = '''
+    let g:vimwiki_list = [{'path': '~/Documentos/notas', 'syntax': 'markdown', 'ext': '.md'}]
+'''
