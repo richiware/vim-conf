@@ -1,39 +1,41 @@
 {
-  "python.pythonPath": "python3",
-  "python.linting.pylintEnabled": false,
-  "python.linting.flake8Enabled": true,
-  "languageserver": {
-    "ccls": {
-      "command": "ccls",
-      /*
-      "args": [
-        "-log-file=/tmp/ccls.log",
-        "-v=1"
-      ],
-      */
-      "filetypes": [
-        "c",
-        "cpp",
-        "cuda",
-        "objc",
-        "objcpp"
-      ],
-      "rootPatterns": [
-        ".ccls",
-        ".ccls-root",
-        "compile_commands.json",
-        ".vim/",
-        ".git/",
-        ".hg/"
-      ],
-      "initializationOptions": {
-        "cache": {
-          "directory": "/tmp/ccls"
-        },
-        "highlight": {
-          "lsRanges": true
+    "coc.source.emoji.filetypes": ["markdown", "vimwiki"],
+    "coc.source.emoji.triggerCharacters": ["¶"],
+    "python.pythonPath": "python3",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            /*
+            "args": [
+                "-log-file=/tmp/ccls.log",
+                "-v=1"
+            ],
+            */
+            "filetypes": [
+                "c",
+                "cpp",
+                "cuda",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls",
+                ".ccls-root",
+                "compile_commands.json",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                },
+                "highlight": {
+                    "lsRanges": true
+                }
+            }
         }
-      }
     }
-  }
 }
