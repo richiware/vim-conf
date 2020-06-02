@@ -11,15 +11,6 @@ hook_source = '''
     let g:checkattach_filebrowser = 'ranger'
 '''
 
-# Fuzzy finder (Search files)
-[[plugins]]
-repo = 'junegunn/fzf'
-build = './install --all'
-hook_add = '''
-  nnoremap <silent> <Leader>t
-        \ :<C-u>FZF<CR>
-'''
-
 [[plugins]]
 repo = 'Rykka/InstantRst'
 on_ft = 'rst'

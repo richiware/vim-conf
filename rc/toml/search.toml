@@ -1,0 +1,12 @@
+########################################################################################################################
+# Plugins for perform searching.                                                                                       #
+########################################################################################################################
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+merged = 0
+hook_source = 'source ~/.vim/rc/plugins/fzf.rc.vim'
+hook_add = '''
+  nnoremap <silent> <Leader>t
+        \ :call FzfFilePreview()<CR>
+'''

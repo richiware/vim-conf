@@ -191,3 +191,4 @@ nnoremap <C-H> <C-W><C-H>
 highlight CocHighlightText cterm=underline,bold
 " Background transparent in terminal
 highlight Normal ctermbg=NONE
+highlight NormalFloat cterm=NONE
