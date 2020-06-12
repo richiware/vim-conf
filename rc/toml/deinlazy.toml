@@ -2,9 +2,6 @@
 repo = 'vim-scripts/AnsiEsc.vim'
 
 [[plugins]]
-repo = 'rbgrouleff/bclose.vim'
-
-[[plugins]]
 repo = 'chrisbra/CheckAttach'
 on_ft = ['mail']
 hook_source = '''
@@ -23,14 +20,6 @@ on_if = 1
 repo = 'Shougo/neoyank.vim'
 on_if = 1
 on_source = 'unite.vim'
-
-[[plugins]]
-repo = 'francoiscabrol/ranger.vim'
-depends = 'bclose.vim'
-hook_add = '''
-  let g:ranger_map_keys=0
-  map <leader>f :Ranger<CR>
-'''
 
 [[plugins]]
 repo = 'Rykka/riv.vim'

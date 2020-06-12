@@ -1,6 +1,6 @@
 " Files + devicons + floating fzf
 function! FzfFilePreview()
-    let l:fzf_files_options = '--preview "bat --style=numbers --color=always {3..-1} | head -100" --expect=ctrl-v,ctrl-x'
+    let l:fzf_files_options = '--preview "bat --color=always {3..-1} | head -100" --expect=ctrl-v,ctrl-x'
     let s:files_status = {}
 
     function! s:cacheGitStatus()

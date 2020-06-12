@@ -1,0 +1,15 @@
+# Dependency of 'francoiscabrol/ranger.vim'.
+[[plugins]]
+repo = 'rbgrouleff/bclose.vim'
+
+[[plugins]]
+repo = 'francoiscabrol/ranger.vim'
+depends = 'bclose.vim'
+merged = 0
+hook_source = '''
+    let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree
+    let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
+
+    let g:ranger_map_keys = 0
+    map <leader>r :set nonumber<CR> :Ranger<CR> :set number<CR>
+'''
