@@ -198,8 +198,11 @@ repo = 'christoomey/vim-tmux-navigator'
 [[plugins]]
 repo = 'lervag/vimtex'
 hook_source = '''
+    let g:tex_flavor = 'latex'
     let g:vimtex_view_method = 'zathura'
     let g:vimtex_tex_program = 'xelatex'
+    let g:vimtex_latexmk_build_dir = './build/pdf'
+    let g:vimtex_latexmk_progname = 'nvr'
     let g:vimtex_compiler_latexmk = {
         \ 'build_dir' : getcwd().'/build/pdf',
         \ 'options' : [
