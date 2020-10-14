@@ -203,9 +203,12 @@ hook_source = '''
     let g:vimtex_tex_program = 'xelatex'
     let g:vimtex_latexmk_build_dir = './build/pdf'
     let g:vimtex_latexmk_progname = 'nvr'
+
+    " '-cd' Permit to have same Tex file names in a repository. This build inside the folder of the Tex file.
     let g:vimtex_compiler_latexmk = {
-        \ 'build_dir' : getcwd().'/build/pdf',
+        \ 'build_dir' : 'build/pdf',
         \ 'options' : [
+        \   '-cd',
         \   '-pdf',
         \   "-e '$pdflatex=q/xelatex %O %S/'",
         \   '-verbose',
