@@ -202,7 +202,7 @@ hook_source = '''
     let g:vimtex_view_method = 'zathura'
     let g:vimtex_tex_program = 'xelatex'
     let g:vimtex_latexmk_build_dir = './build/pdf'
-    let g:vimtex_latexmk_progname = 'nvr'
+    let g:vimtex_compiler_progname = 'nvr'
 
     " '-cd' Permit to have same Tex file names in a repository. This build inside the folder of the Tex file.
     let g:vimtex_compiler_latexmk = {
