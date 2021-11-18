@@ -281,12 +281,12 @@ repo = 'reedes/vim-wordy'
 [[plugins]]
 repo = 'junegunn/goyo.vim'
 hook_source = '''
-    let g:goyo_width=120
+    let g:goyo_width=125
 '''
 
 # Hyperfocus-writing in Vim
 [[plugins]]
 repo = 'junegunn/limelight.vim'
 hook_source = '''
-    let g:limelight_conceal_ctermfg = '10'
+    let g:limelight_conceal_ctermfg=10
 '''
