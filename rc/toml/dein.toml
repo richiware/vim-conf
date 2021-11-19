@@ -282,6 +282,8 @@ repo = 'reedes/vim-wordy'
 repo = 'junegunn/goyo.vim'
 hook_source = '''
     let g:goyo_width=125
+    " ',iw' activates Goyo and LimeLight.
+    nnoremap <leader>iw :Goyo<CR>:Limelight!!<CR>
 '''
 
 # Hyperfocus-writing in Vim
