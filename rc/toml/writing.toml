@@ -1,0 +1,27 @@
+#######################################################################################################################
+# Plugins for writing documents
+#######################################################################################################################
+
+# Distraction-free writing in Vim
+[[plugins]]
+repo = 'junegunn/goyo.vim'
+hook_source = '''
+    let g:goyo_width=125
+    " ',iw' activates Goyo and LimeLight.
+    nnoremap <leader>iw :Goyo<CR>:Limelight!!<CR>
+'''
+
+# Hyperfocus-writing in Vim
+[[plugins]]
+repo = 'junegunn/limelight.vim'
+hook_source = '''
+    let g:limelight_conceal_ctermfg=10
+'''
+# Center the document in the screen
+[[plugins]]
+repo = 'jmckiern/vim-venter'
+hook_source = '''
+    let g:venter_width=125
+    " ',ic' activates Venter.
+    nnoremap <leader>ic :VenterToggle<CR>
+'''

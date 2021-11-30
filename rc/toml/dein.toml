@@ -272,23 +272,3 @@ build = 'bash install.sh'
 # Check your grammar
 [[plugins]]
 repo = 'reedes/vim-wordy'
-
-#######################################################################################################################
-# Plugins for writing documents
-#######################################################################################################################
-
-# Distraction-free writing in Vim
-[[plugins]]
-repo = 'junegunn/goyo.vim'
-hook_source = '''
-    let g:goyo_width=125
-    " ',iw' activates Goyo and LimeLight.
-    nnoremap <leader>iw :Goyo<CR>:Limelight!!<CR>
-'''
-
-# Hyperfocus-writing in Vim
-[[plugins]]
-repo = 'junegunn/limelight.vim'
-hook_source = '''
-    let g:limelight_conceal_ctermfg=10
-'''
