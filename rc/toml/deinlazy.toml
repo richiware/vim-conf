@@ -24,6 +24,9 @@ on_source = 'unite.vim'
 [[plugins]]
 repo = 'Rykka/riv.vim'
 on_ft = 'rst'
+hook_source = '''
+    let g:riv_fold_auto_update = 0
+'''
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
