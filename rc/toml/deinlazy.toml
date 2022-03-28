@@ -151,27 +151,6 @@ hook_add = '''
     map <Leader>w <Plug>(easymotion-w)
 '''
 
-# Support for easytags
-# TODO Fix when LUA support is in neovim (hightlight can be don by other plugin that use LUA)
-[[plugins]]
-repo = 'xolox/vim-easytags'
-depends = 'vim-misc'
-on_ft = ['c', 'cpp', 'cxx', 'cc']
-hook_source = '''
-    let g:easytags_always_enabled = 0
-    let g:easytags_events = ['BufWritePost']
-    let g:easytags_file = 'tags'
-    if has('nvim')
-        let g:easytags_auto_highlight = 0
-    else
-        let g:easytags_auto_highlight = 0
-    endif
-    let g:easytags_updatetime_min = 5000
-    let g:easytags_async = 1
-    let g:easytags_opts = ['--c-kinds=+p', '--c++-kinds=+p', '--fields=+liaS', '--extra=+q', '--exclude=build']
-    let g:easytags_suppress_ctags_warning = 1
-'''
-
 # Generate automatically markdown toc.
 [[plugins]]
 repo = 'mzlogin/vim-markdown-toc'

@@ -55,7 +55,6 @@ filetype plugin indent on
 "
 
 let g:ctags_command="ctags -R --c-kinds=+p --c++-kinds=+p --fields=+liaS --extras=+q --exclude=build ."
-set tags+=/home/ricardo/workspace/desarrollo/utilidades/stl/stl_tags
 
 
 "---------------------------------------------------------------------------

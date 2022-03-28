@@ -58,24 +58,6 @@ hook_source = '''
     let g:SuperTabDefaultCompletionType    = '<C-n>'
 '''
 
-[[plugins]]
-repo = 'vim-scripts/taglist.vim'
-hook_add = '''
-    let g:Tlist_Display_Prototype = 0
-    let g:Tlist_Display_Tag_Scope = 1
-    let g:Tlist_Exit_OnlyWindow = 1
-    let g:Tlist_Enable_Fold_Column = 0
-    let g:Tlist_Sort_Type = "order"
-    let g:Tlist_Compact_Format = 1
-    let g:Tlist_File_Fold_Auto_Close = 0
-    let g:Tlist_WinWidth = 35
-    let g:Tlist_GainFocus_On_ToggleOpen = 1
-    let g:Tlist_Close_On_Select = 1
-    let g:Tlist_Show_One_File = 1
-    nmap <F10> :Tlist<CR>
-'''
-
-
 # UltiSnips - Fancy snippet functionality
 [[plugins]]
 repo = 'SirVer/ultisnips'

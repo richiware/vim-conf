@@ -1,6 +1,5 @@
 {
-    "coc.source.emoji.filetypes": ["markdown", "vimwiki"],
-    "coc.source.emoji.triggerCharacters": ["¶"],
+    "coc.source.emoji.filetypes": ["markdown", "vimwiki", "rst"],
     "python.pythonPath": "python3",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
