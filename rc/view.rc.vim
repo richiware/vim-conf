@@ -20,8 +20,12 @@ if IsWindows()
 else
    set listchars=tab:▸\ ,trail:-,extends:»,precedes:«,nbsp:%
 endif
-" Always display statusline.
-set laststatus=2
+" Always display statusline except for embed version in firefox
+if exists('g:started_by_firenvim')
+  set laststatus=0
+else
+  set laststatus=2
+endif
 " Height of command line.
 set cmdheight=2
 " Not show command on statusline.

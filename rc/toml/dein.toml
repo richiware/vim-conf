@@ -94,14 +94,16 @@ hook_post_source = '''
 # Instala una barra inferior con más información (ex: información git)
 [[plugins]]
 repo = 'bling/vim-airline'
-depends = 'vim-obsession'
+depends = ['firenvim', 'vim-obsession']
 hook_source = '''
-    let g:airline#extensions#branch#enabled = 1
-    let g:airline#extensions#eclim#enabled = 1
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#coc#enabled = 1 " Integration with CoC
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h8
     let g:airline_powerline_fonts = 1
+    if !exists('g:started_by_firenvim')
+        let g:airline#extensions#branch#enabled = 1
+        let g:airline#extensions#eclim#enabled = 1
+        let g:airline#extensions#tabline#enabled = 1
+        let g:airline#extensions#coc#enabled = 1 " Integration with CoC
+    endif
 '''
 
 # Plugin to review PR in Github.
