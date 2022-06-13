@@ -15,6 +15,7 @@ hook_source = '''
     endfunction
     autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
     au BufEnter github.com_*.txt set filetype=markdown
+    au BufEnter eprosima.easyredmine.com_*.txt set filetype=markdown
 '''
 
 # Use ranger inside Vim
