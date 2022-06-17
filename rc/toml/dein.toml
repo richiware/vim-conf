@@ -133,6 +133,9 @@ on_ft = ['markdown', 'pandoc.markdown', 'rmd']
 hook_source = '''
     let g:mkdp_auto_start = 1
     let g:mkdp_port = '8090'
+    let g:mkdp_preview_options = {
+        \ 'uml': { 'server': 'http://localhost:8080' }
+        \}
 '''
 
 [[plugins]]
