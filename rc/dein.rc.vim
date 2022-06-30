@@ -17,12 +17,19 @@ let s:dein_nvim_toml = '~/.vim/rc/toml/deinvim.toml'
 let s:dein_vim_toml = '~/.vim/rc/toml/deivim.toml'
 let s:browser_toml = '~/.vim/rc/toml/browser.toml'
 let s:decoration_toml = '~/.vim/rc/toml/decoration.toml'
+let s:develop_toml = '~/.vim/rc/toml/develop.toml'
 let s:notes_toml = '~/.vim/rc/toml/notes.toml'
 let s:search_toml = '~/.vim/rc/toml/search.toml'
 let s:writing_toml = '~/.vim/rc/toml/writing.toml'
 
 call dein#begin(s:path, [
-      \ expand('<sfile>'), s:dein_toml, s:dein_lazy_toml, s:dein_nvim_toml, s:dein_vim_toml
+      \ expand('<sfile>'), s:dein_toml, s:dein_lazy_toml, s:dein_nvim_toml, s:dein_vim_toml,
+      \ s:browser_toml,
+      \ s:decoration_toml,
+      \ s:develop_toml,
+      \ s:notes_toml,
+      \ s:search_toml,
+      \ s:writing_toml
       \ ])
 
 call dein#load_toml(s:dein_toml, {'lazy': 0})
@@ -34,6 +41,7 @@ else
 endif
 call dein#load_toml(s:browser_toml)
 call dein#load_toml(s:decoration_toml)
+call dein#load_toml(s:develop_toml)
 call dein#load_toml(s:notes_toml)
 call dein#load_toml(s:search_toml)
 call dein#load_toml(s:writing_toml)

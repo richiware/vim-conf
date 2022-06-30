@@ -1,0 +1,17 @@
+[[plugins]]
+repo = 'p00f/godbolt.nvim'
+hook_source = '''
+    lua << EOF
+        require("godbolt").setup({
+            languages = {
+                c = { compiler = "cg121", options = {userArguments = "-Wall -O2"} },
+                cpp = { compiler = "g121", options = {userArguments = "-Wall -O2"} },
+                rust = { compiler = "r1600", options = {} },
+                -- any_additional_filetype = { compiler = ..., options = ... },
+            },
+            quickfix = {
+                enable = true, -- whether to populate the quickfix list in case of errors
+                auto_open = true -- whether to open the quickfix list in case of errors
+            }
+        })
+'''

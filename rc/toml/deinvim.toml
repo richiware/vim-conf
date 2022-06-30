@@ -1,10 +1,4 @@
 [[plugins]]
-repo = 'dbgx/lldb.nvim'
-hook_add = '''
-    let g:lldb_map_Lrun = '<leader>lr'
-'''
-
-[[plugins]]
 repo = 'sbdchd/neoformat'
 hook_source = '''
     " Enabling formatters
