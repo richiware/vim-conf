@@ -223,8 +223,10 @@ noremap <expr> zz (winline() == (winheight(0)+1)/ 2) ?
 " Capitalize.
 nnoremap gu gUiw`]
 
-" Clear highlight.
-nnoremap <ESC><ESC> :nohlsearch<CR>:match<CR>
+" Clear highlight if it is not Firenvim which already use this key mapping
+if !exists('g:started_by_firenvim')
+    nnoremap <ESC><ESC> :nohlsearch<CR>:match<CR>
+endif
 "}}}
 
 " Improved increment.

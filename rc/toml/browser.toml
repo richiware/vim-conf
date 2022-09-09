@@ -16,6 +16,7 @@ hook_source = '''
     autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
     au BufEnter github.com_*.txt set filetype=markdown
     au BufEnter eprosima.easyredmine.com_*.txt set filetype=markdown
+    nnoremap <Esc><Esc> :call firenvim#focus_page()<CR>
 '''
 
 # Use ranger inside Vim
