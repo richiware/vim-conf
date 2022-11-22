@@ -51,13 +51,6 @@ hook_source = "let g:evervim_devtoken='S=s44:U=495a1f:E=16050da403b:C=158f929114
 [[plugins]]
 repo = 'cpiger/NeoDebug'
 
-# Supertab - Activar autocompletado cuando das a TAB, en vez de tener que dar a Ctrl-X + Ctrl-O
-[[plugins]]
-repo = 'ervandew/supertab'
-hook_source = '''
-    let g:SuperTabDefaultCompletionType    = '<C-n>'
-'''
-
 # UltiSnips - Fancy snippet functionality
 [[plugins]]
 repo = 'SirVer/ultisnips'
