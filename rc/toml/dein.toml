@@ -1,25 +1,8 @@
-[[plugins]]
-repo = 'vim-scripts/AnsiEsc.vim'
-
 # BufExplorer
 [[plugins]]
 repo = 'jlanzarotta/bufexplorer'
 # Open BufferExplorer
 hook_add = 'nmap <F9> :<C-u>ToggleBufExplorer<CR>'
-
-# Plugin for autocomplete
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-rev = 'release'
-merge = '0'
-hook_source = '''
-    autocmd CursorHold * silent call CocActionAsync('highlight') " Highlight current word on cursor.
-    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-'''
-
-# Plugin for highligh using a LanguageServer (CoC)
-[[plugins]]
-repo = 'jackguo380/vim-lsp-cxx-highlight'
 
 [[plugins]]
 repo = 'Shougo/dein.vim'
@@ -96,6 +79,7 @@ hook_source = '''
         let g:airline#extensions#eclim#enabled = 1
         let g:airline#extensions#tabline#enabled = 1
         let g:airline#extensions#coc#enabled = 1 " Integration with CoC
+        let g:airline#extensions#ale#enabled = 1 " Integration with Ale
     endif
 '''
 
@@ -212,36 +196,6 @@ hook_source = '''
 # Plugin para generar ficheros YouCompleteMe o Color_Coded.
 [[plugins]]
 repo = 'rdnetto/YCM-Generator'
-
-# Add support for autocomplete servers
-#[[plugins]]
-#repo = 'autozimu/LanguageClient-neovim'
-#rev = 'next'
-#build =  'bash install.sh'
-#hook_source = '''
-#    let g:LanguageClient_serverCommands = {
-#    \ 'c'   : ['clangd'],
-#    \ 'cpp'   : ['clangd'],
-#    \ }
-#
-#    function! SetLSPShortcuts()
-#      nnoremap <leader>gd :call LanguageClient#textDocument_definition()<CR>
-#      nnoremap <leader>gr :call LanguageClient#textDocument_rename()<CR>
-#      nnoremap <leader>gf :call LanguageClient#textDocument_formatting()<CR>
-#      nnoremap <leader>gt :call LanguageClient#textDocument_typeDefinition()<CR>
-#      nnoremap <leader>gx :call LanguageClient#textDocument_references()<CR>
-#      nnoremap <leader>ga :call LanguageClient_workspace_applyEdit()<CR>
-#      nnoremap <leader>gc :call LanguageClient#textDocument_completion()<CR>
-#      nnoremap <leader>gh :call LanguageClient#textDocument_hover()<CR>
-#      nnoremap <leader>gs :call LanguageClient_textDocument_documentSymbol()<CR>
-#      nnoremap <leader>gm :call LanguageClient_contextMenu()<CR>
-#    endfunction()
-#
-#    augroup LSP
-#      autocmd!
-#      autocmd FileType cpp,c call SetLSPShortcuts()
-#    augroup END
-#'''
 
 # Add support for debugging on GDB
 [[plugins]]

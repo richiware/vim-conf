@@ -3,6 +3,7 @@
     "python.pythonPath": "python3",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
+    "diagnostic.displayByAle": true,
     "languageserver": {
         "ccls": {
             "command": "ccls",

@@ -1,0 +1,37 @@
+# Plugin for autocomplete with a LSP
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+merge = '0'
+hook_source = '''
+    " list of the extensions to make sure are always installed
+    let g:coc_global_extensions = [
+            \'coc-cmake',
+            \'coc-emoji',
+            \'coc-highlight',
+            \'coc-lbdbq',
+            \'coc-python',
+            \'coc-tag',
+            \]
+
+    autocmd CursorHold * silent call CocActionAsync('highlight') " Highlight current word on cursor.
+    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+'''
+
+# Plugin for highligh using a LanguageServer (CoC)
+[[plugins]]
+repo = 'jackguo380/vim-lsp-cxx-highlight'
+
+# Plugin for use external linters (e.g uncrustify)
+[[plugins]]
+repo = 'dense-analysis/ale'
+hook_source = '''
+    let g:ale_fix_on_save = 1
+    let g:ale_disable_lsp = 1
+    let g:ale_sign_error = '✘'
+    let g:ale_sign_warning = '⚠'
+    let g:ale_fixers = {
+    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \   'cpp': ['uncrustify'],
+    \}
+'''
