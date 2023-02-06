@@ -4,6 +4,10 @@
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "diagnostic.displayByAle": true,
+    "snippets.ultisnips.directories": [
+        "UltiSnips",
+        "$PWD/.vim/UltiSnips"
+    ],
     "languageserver": {
         "ccls": {
             "command": "ccls",

@@ -38,12 +38,11 @@ repo = 'cpiger/NeoDebug'
 [[plugins]]
 repo = 'SirVer/ultisnips'
 hook_source = '''
-    let g:UltiSnipsSnippetsDir='~/.vim/snippets'
+    let g:UltiSnipsSnippetDirectories=['UltiSnips', getcwd().'/.vim/UltiSnips']
     let g:UltiSnipsEditSplit='vertical'
 
     " Don't map tabs because used by deoplete.
-    let g:UltiSnipsExpandTrigger="<NUL>"
-    let g:UltiSnipsListSnippets="<NUL>"
+    let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<tab>"
     let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 

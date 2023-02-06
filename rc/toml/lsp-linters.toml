@@ -11,6 +11,7 @@ hook_source = '''
             \'coc-highlight',
             \'coc-lbdbq',
             \'coc-python',
+            \'coc-snippets',
             \'coc-tag',
             \]
 
