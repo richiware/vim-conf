@@ -142,3 +142,10 @@ endif
 
 " Change default makeprg
 set makeprg=make\ -C\ build/Debug\ GCC_COLORS=
+
+" Avoid temporary files when using gopass
+if has('nvim')
+    autocmd BufNewFile,BufRead /dev/shm/gopass* setlocal noswapfile nobackup noundofile shada=""
+else
+    autocmd BufNewFile,BufRead /dev/shm/gopass* setlocal noswapfile nobackup noundofile viminfo=""
+endif
