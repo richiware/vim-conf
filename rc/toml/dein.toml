@@ -7,6 +7,9 @@ hook_add = 'nmap <F9> :<C-u>ToggleBufExplorer<CR>'
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+[[plugins]]
+repo = 'wsdjeg/dein-ui.vim'
+
 # TODO(Ricardo)
 [[plugins]]
 repo = 'vim-scripts/DirDiff.vim'
