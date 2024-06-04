@@ -1,0 +1,33 @@
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+
+[[plugins]]
+repo = 'maxmx03/solarized.nvim'
+depends = 'nvim-treesitter'
+hook_source = '''
+lua << EOF
+require('solarized').setup({
+transparent = true
+})
+EOF
+
+    set background=dark
+    colorscheme solarized
+'''
+
+# Plugin for highligh using a LanguageServer (CoC)
+[[plugins]]
+repo = 'jackguo380/vim-lsp-cxx-highlight'
+
+#[[plugins]]
+#repo = 'altercation/vim-colors-solarized'
+#hook_post_source = '''
+#    " let g:solarized_termcolors=256
+#    syntax enable
+#    if has('gui_running')
+#        set background=light
+#    else
+#        set background=dark
+#    endif
+#    colorscheme solarized
+#'''

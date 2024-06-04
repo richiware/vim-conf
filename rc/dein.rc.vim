@@ -17,6 +17,7 @@ let s:dein_vim_toml = '~/.vim/rc/toml/deivim.toml'
 let s:browser_toml = '~/.vim/rc/toml/browser.toml'
 let s:decoration_toml = '~/.vim/rc/toml/decoration.toml'
 let s:develop_toml = '~/.vim/rc/toml/develop.toml'
+let s:highlighting_toml = '~/.vim/rc/toml/highlighting.toml'
 let s:lsp_linters_toml = '~/.vim/rc/toml/lsp-linters.toml'
 let s:notes_toml = '~/.vim/rc/toml/notes.toml'
 let s:search_toml = '~/.vim/rc/toml/search.toml'
@@ -27,6 +28,7 @@ call dein#begin(s:path, [
       \ s:browser_toml,
       \ s:decoration_toml,
       \ s:develop_toml,
+      \ s:highlighting_toml,
       \ s:lsp_linters_toml,
       \ s:notes_toml,
       \ s:search_toml,
@@ -41,6 +43,7 @@ endif
 call dein#load_toml(s:browser_toml)
 call dein#load_toml(s:decoration_toml)
 call dein#load_toml(s:develop_toml)
+call dein#load_toml(s:highlighting_toml)
 call dein#load_toml(s:lsp_linters_toml)
 call dein#load_toml(s:notes_toml)
 call dein#load_toml(s:search_toml)

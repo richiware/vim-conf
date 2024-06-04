@@ -56,19 +56,6 @@ hook_source = '''
 repo = 'Shougo/vimproc.vim'
 build = 'make'
 
-[[plugins]]
-repo = 'altercation/vim-colors-solarized'
-hook_post_source = '''
-    " let g:solarized_termcolors=256
-    syntax enable
-    if has('gui_running')
-        set background=light
-    else
-        set background=dark
-    endif
-    colorscheme solarized
-'''
-
 # Instala una barra inferior con más información (ex: información git)
 [[plugins]]
 repo = 'bling/vim-airline'
