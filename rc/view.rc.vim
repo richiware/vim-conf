@@ -12,6 +12,7 @@ set number
 
 " Ortografia en comentarios
 set spell
+au TermOpen * setlocal nospell " Remove spelling in terminal buffers
 
 " Show <TAB> and <CR>
 set list
